@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
+import { Link } from 'expo-router'
 import { useEffect, useRef, useState } from 'react'
 import {
   ActivityIndicator,
@@ -248,14 +249,14 @@ export default function HomeScreen() {
       setActiveSwiperId={setActiveSwiperId}
       currentDrawerType={currentDrawerType}
     >
-      <TouchableWithoutFeedback
-        onPress={() =>
-          navigation.navigate('Detail', {
-            _id: item._id,
-            currentDrawerType
-          })
-        }
-      >
+      <TouchableWithoutFeedback>
+        <Link
+          style={feedItemstyles.link}
+          href={{
+            pathname: 'main/detail',
+            params: { _id: item._id, currentDrawerType }
+          }}
+        >
         <View style={feedItemstyles.card}>
           <View
             style={{
@@ -338,6 +339,7 @@ export default function HomeScreen() {
             </Text>
           </View>
         </View>
+        </Link>
       </TouchableWithoutFeedback>
     </MySwiper>
   )
@@ -382,7 +384,22 @@ const feedItemstyles = StyleSheet.create({
     wordBreak: 'break-word',
     padding: 2
   },
+  link: {
+    marginBottom: 5,
+    borderRadius: 8,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+    width: '100%',
+    // ios
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 2,
+    maxHeight: 600,
+  },
   card: {
+    width: '100%',
     backgroundColor: '#fff',
     marginBottom: 3,
     // marginTop: 3,
@@ -392,12 +409,6 @@ const feedItemstyles = StyleSheet.create({
     padding: 12,
     paddingTop: 5,
     paddingBottom: 5,
-    // ios
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 2,
     maxHeight: 600,
     overflow: 'hidden',
     whiteSpace: 'break-spaces'

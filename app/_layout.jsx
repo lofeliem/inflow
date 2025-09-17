@@ -1,19 +1,21 @@
-import { Drawer } from "expo-router/drawer";
-import "react-native-reanimated";
-import { SafeAreaView } from "react-native-safe-area-context";
-import DrawerScreen from "./drawer";
+import { Drawer } from 'expo-router/drawer'
+import 'react-native-reanimated'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import DrawerScreen from './drawer'
 
-
-import React from "react";
-import { StatusBar } from "react-native";
-import { RootSiblingParent } from "react-native-root-siblings";
-import Toast from "react-native-toast-message";
-import { Provider } from 'react-redux';
-import store from '../store/index';
+import { useNavigation } from 'expo-router'
+import React from 'react'
+import { StatusBar } from 'react-native'
+import { RootSiblingParent } from 'react-native-root-siblings'
+import Toast from 'react-native-toast-message'
+import { Provider } from 'react-redux'
+import store from '../store/index'
 
 export default function RootLayout() {
-  function CustomDrawerContent(props) {
-    return <DrawerScreen />;
+  const navigation = useNavigation()
+  
+  function CustomDrawerContent(navigation, ...props) {
+    return <DrawerScreen navigation={navigation}/>
   }
   return (
     <RootSiblingParent>
