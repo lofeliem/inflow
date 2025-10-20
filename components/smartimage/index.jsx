@@ -4,7 +4,6 @@ import { StyleSheet, View } from 'react-native'
 
 export default function SmartImage({ imgUrl, showBlurBg }) {
   const [imgLoading, setImgLoading] = useState(false)
-  console.log('iiii', imgUrl)
 
   const onLoadStart = () => {
     console.log('onLoadStart')
