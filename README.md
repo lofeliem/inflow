@@ -1,6 +1,8 @@
 # Welcome to your Expo app 👋
 回到bdzhang目录 sudo ~/mongodb/mongodb/bin/mongod --dbpath ~/github/inflow/database
-
+✔ Incremented versionCode from 5 to 6.
+✔ Using remote Android credentials (Expo server)
+✔ Using Keystore from configuration: Build Credentials BZSeNjuZJ3 (default)
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
