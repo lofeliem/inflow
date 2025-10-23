@@ -43,10 +43,18 @@ export default function RootLayout() {
       }
     }
     checkInitialUrl()
+    checkInternetConnection()
     return () => {
       mounted = false
     }
   }, [router])
+
+  function checkInternetConnection() {
+    fetch('http://192.168.1.5:3000')
+      .then(res => res.text())
+      .then(console.log('Network connection successful'))
+      .catch(err => console.log('Network error:', err));
+  }
   
   function CustomDrawerContent(props) {
     return <DrawerScreen {...props}/>
