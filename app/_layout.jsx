@@ -56,8 +56,8 @@ export default function RootLayout() {
       .catch(err => console.log('Network error:', err));
   }
   
-  function CustomDrawerContent(props) {
-    return <DrawerScreen {...props}/>
+  function CustomDrawerContent(navigation, ...props) {
+    return <DrawerScreen navigation={navigation}/>
   }
   return (
     <RootSiblingParent>
